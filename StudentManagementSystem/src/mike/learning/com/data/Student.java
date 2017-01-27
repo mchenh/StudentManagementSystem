@@ -6,11 +6,13 @@ public class Student extends Person {
 	private float gpa;
 	private ArrayList<Course> current = new ArrayList<Course>();
 	private ArrayList<Course> previous = new ArrayList<Course>();
+	private int studentID;
 
 	public Student(){}
-	public Student(String fname, String lname, int age, String phone, String address,
+	public Student(int id, String fname, String lname, int age, String phone, String address,
 				String birthday, String ssn, ArrayList<Course> current, ArrayList<Course> previous){
 		super(fname, lname, age, phone, address, birthday, ssn);
+		this.studentID = id;
 		this.current = current;
 		this.previous = previous;
 	}
