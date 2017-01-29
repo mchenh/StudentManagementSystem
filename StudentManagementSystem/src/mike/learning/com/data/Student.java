@@ -9,12 +9,21 @@ public class Student extends Person {
 	private int studentID;
 
 	public Student(){}
-	public Student(int id, String fname, String lname, int age, String phone, String address,
-				String birthday, String ssn, ArrayList<Course> current, ArrayList<Course> previous){
+	public Student(String fname, String lname, int age, String phone, String address,
+				String birthday, String ssn, ArrayList<Course> current, ArrayList<Course> previous, int id){
 		super(fname, lname, age, phone, address, birthday, ssn);
 		this.studentID = id;
 		this.current = current;
 		this.previous = previous;
+	}
+	public int getStudentID() {
+		return studentID;
+	}
+	public void setStudentID(int studentID) {
+		this.studentID = studentID;
+	}
+	public void setGpa(float gpa) {
+		this.gpa = gpa;
 	}
 	public float getGpa() {
 		float average = 0;
