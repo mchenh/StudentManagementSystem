@@ -1,25 +1,32 @@
+
+1. Create a new class Grade, this contains two properties: couseId(int), and score(int)
+
+2. Change ArrayList<Course> current and ArrayList<Course> previous in Student class to ArrayList<Grade> current and ArrayList<Grade>
 	
-Person:
+3. Person objects:
 ===================
 {"Mike", "Chen", "Mike Chen", 26, "571-606-0999", "4803 Nash Dr., Fairfax, VA 22032", "4/10/1991", "500010000"}
 {"Iris", "Chen", "Iris X Chen", 19, "703-894-8855", "11561 clara Barton Dr., Farifax Station, VA 22039", "10/6/1997", "500010001"}
 {"Jayden", "Chen", "Jaden J Chen", 19, "571-999-0999", "4832 Nash Dr., Fairfax, VA 22032", "8/14/1997", "500010003"}
 {"Lucy", "Wang", "Lucy Wang", 20, "408-606-0999", "4807 Nash Dr., Fairfax, VA 22032", "6/10/1996", "500010004"}
 {"Susan", "Yin", "Susan Xuxia Yin", 53, "703-606-1488", "11561 clara Barton Dr., Farifax Station, VA 22039", "10/27/1963", "500010002"}
-{"Jim", "Chen", "Jim X Chen", 54, "703-786-6426", "11561 clara Barton Dr., Farifax Station, VA 22039", "8/6/1962", "500010005"}
+{"Jim", "Chen", "Jim X Chen", 54, "703-786-6426", "11561 clara Barton Dr., Fairfax Station, VA 22039", "8/6/1962", "500010005"}
 
-1. Create a new class Grade, this contains contain two properties: couseId, and score
-2. ArrayList<Course> current and ArrayList<Course> previous should change to ArrayList<Grade> current and ArrayList<Grade>
+4. create Student objects of Mike, Iris, Jayden, and Lucy (remember student ID is auto-generated)
 
-Courses:
+5. Create Professor objects of Susan and Jim (remember professor ID is auto-generated)
+
+6. Courses objects (remember course ID is auto-generated):
 =======================
-private Professor teacher = new Professor();
-	private String name;
-	private int grade;
-	private ArrayList<Student> students = new ArrayList<Student>();
-	private int credit;
-	private int maxStudents;
-	private int courseID;
-Susan Yin: teach "English", credit is 3, maxStudent is 10, courseID is 
-{}
-{}
+"English", credit is 3, maxStudent is 10
+"Math", credit is 3, maxStudent is 10
+"Art", credit is 3, maxStudne is 10
+"Java", credit is 3, maxStudne is 10
+
+7. Susan teaches Math and Java, Jim teaches English and Art
+
+8. Create a School object in the main of CourseManagement.java, and have Iris register Art and English, Mike register Java,
+Jayden registers English, Lucy register English and Math
+
+9. After all registrations completed, display all student information (all student fields)
+
