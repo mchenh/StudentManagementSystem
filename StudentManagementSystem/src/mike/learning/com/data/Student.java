@@ -7,23 +7,29 @@ public class Student extends Person {
 	private ArrayList<Course> current = new ArrayList<Course>();
 	private ArrayList<Course> previous = new ArrayList<Course>();
 	private int studentID;
+	private static int studentIDCount = 0;
 
-	public Student(){}
+	public Student(){studentID = studentIDCount++;}
 	public Student(String fname, String lname, int age, String phone, String address,
-				String birthday, String ssn, ArrayList<Course> current, ArrayList<Course> previous, int id){
+				String birthday, String ssn, ArrayList<Course> current, ArrayList<Course> previous){
 		super(fname, lname, age, phone, address, birthday, ssn);
-		this.studentID = id;
 		this.current = current;
 		this.previous = previous;
+		this.studentID = studentIDCount++;
 	}
+	public static Student createStudent(Person person) {
+		Student creation = new Student(person.getFname(), person.getLname(), person.getAge(), person.getPhone(),
+				person.getAddress(), person.getBirthday(), person.getSsn(), null, null);
+		creation.setStudentID(studentIDCount);
+		studentIDCount++;
+		return creation;		
+	}
+	
 	public int getStudentID() {
 		return studentID;
 	}
 	public void setStudentID(int studentID) {
 		this.studentID = studentID;
-	}
-	public void setGpa(float gpa) {
-		this.gpa = gpa;
 	}
 	public float getGpa() {
 		float average = 0;
@@ -47,5 +53,5 @@ public class Student extends Person {
 	}
 	public void setPrevious(ArrayList<Course> previous) {
 		this.previous = previous;
-	}
+	} 
 }

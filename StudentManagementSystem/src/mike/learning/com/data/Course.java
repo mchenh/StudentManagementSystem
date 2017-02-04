@@ -3,38 +3,43 @@ package mike.learning.com.data;
 import java.util.ArrayList;
 
 public class Course {
-	private Professor teacher = new Professor();
+	private int teacherID;
 	private String name;
 	private int grade;
-	private ArrayList<Student> students = new ArrayList<Student>();
+	private ArrayList<Integer> studentIDs;
 	private int credit;
 	private int maxStudents;
 	private int courseID;
+	private static int courseIDCount = 0;
 	
-	public Course(){}
-	public Course(Professor teacher, String name, int grade, ArrayList<Student> students, int credit, int maxStudents, int courseID){
-		this.teacher = teacher;
+	public Course(){this.courseID = courseIDCount++;}
+	public Course(int teacher, String name, int grade, ArrayList<Integer> students, int credit, int maxStudents){
+		this.teacherID = teacher;
 		this.name = name;
 		this.grade = grade;
-		this.students = students;
+		this.studentIDs = students;
 		this.credit = credit;
 		this.maxStudents = maxStudents;
-		this.courseID = courseID;
+		this.courseID = courseIDCount++;
 	}
-	public Professor getTeacher() {
-		return teacher;
+
+	public int getTeacherID() {
+		return teacherID;
+	}
+	public void setTeacherID(int teacherID) {
+		this.teacherID = teacherID;
+	}
+	public ArrayList<Integer> getStudentIDs() {
+		return studentIDs;
+	}
+	public void setStudentIDs(ArrayList<Integer> studentIDs) {
+		this.studentIDs = studentIDs;
 	}
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
-	}
-	public ArrayList<Student> getStudents() {
-		return students;
-	}
-	public void setStudents(ArrayList<Student> students) {
-		this.students = students;
 	}
 	public int getCredit() {
 		return credit;
@@ -53,9 +58,6 @@ public class Course {
 	}
 	public void setCourseID(int courseID) {
 		this.courseID = courseID;
-	}
-	public void setTeacher(Professor teacher) {
-		this.teacher = teacher;
 	}
 	public int getGrade() {
 		return grade;
