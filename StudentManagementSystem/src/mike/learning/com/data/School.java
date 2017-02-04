@@ -5,6 +5,7 @@ public class School {
 	private ArrayList<Student> students = new ArrayList<Student>();
 	private ArrayList<Course> courses = new ArrayList<Course>();
 	private ArrayList<Professor> professors = new ArrayList<Professor>();
+	private Map<Integer, Student> studentMap = new HashMap<Integer, Student>();
 	
 	public School(){};
 	public School(ArrayList<Student> students, ArrayList<Course> courses, ArrayList<Professor> professors)
@@ -12,6 +13,10 @@ public class School {
 		this.students = students;
 		this.courses = courses;
 		this.professors = professors;
+		
+		for(int i=0; i<this.students.size(); i++){
+			this.studentMap.put(this.students.get(i).getStudentID(), this.students.get(i));
+		}
 	}
 	public ArrayList<Student> getStudents() {
 		return students;
