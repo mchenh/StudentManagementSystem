@@ -23,6 +23,17 @@ public class Course {
 		this.courseID = courseIDCount++;
 	}
 
+	public String toString() {
+		String result = "\nCourse\n";
+		result += "Teacher ID: " + this.getTeacherID() + "\n";
+		result += "Name: " + this.getName() + "\n";
+		result += "Average Grade: " + this.getGrade() + "\n";
+		result += "Credit Value: " + this.getCredit() + "\n";
+		result += "Maximum Students: " + this.getMaxStudents() + "\n";
+		result += "Course ID: " + this.getCourseID() + "\n\n";
+		
+		return result;
+	}
 	public int getTeacherID() {
 		return teacherID;
 	}

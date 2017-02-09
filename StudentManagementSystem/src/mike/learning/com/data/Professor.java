@@ -15,6 +15,28 @@ public class Professor extends Person{
 		this.professorID = professorIDCount++;
 	}
 	
+	public String toString() {
+		String result = "\nProfessor\n";
+		result += "First Name: " + this.getFname() + "\n";
+		result += "Last Name: " + this.getLname() + "\n";
+		result += "Age: " + this.getAge() + "\n";
+		result += "Phone Number: " + this.getPhone() + "\n";
+		result += "Address: " + this.getAddress() + "\n";
+		result += "Birthday: " + this.getBirthday() + "\n";
+		result += "Social Security Number: " + this.getSsn() + "\n";
+		result += "Teaching Course IDs: ";
+		
+		ArrayList<Integer> temp = this.getCourseIDs();
+		
+		for(int i = 0; i<temp.size(); i++) {
+			if(i != temp.size()-1)
+				result += temp.get(i) + ", ";
+			else
+				result += temp.get(i) + "\n\n";
+		}
+		
+		return result;
+	}
 
 	public static Professor createProfessor(Person person) {
 		Professor creation = new Professor(person.getFname(), person.getLname(), person.getAge(), person.getPhone(),

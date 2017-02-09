@@ -6,8 +6,113 @@ public class CourseManagement {
 	
 	public static void main(String args[]) {
 		School school = new School();
+		
+		Student mike = new Student("Mike", "Chen", 26, "571-606-0999", "4803 Nash Dr., Fairfax, VA 22032", "4/10/1991", "500010000", null, null);
+		Student iris = new Student("Iris", "Chen", 19, "703-894-8855", "11561 clara Barton Dr., Farifax Station, VA 22039", "10/6/1997", "500010001",null,null);
+		Student jayden = new Student("Jayden", "Chen", 19, "571-999-0999", "4832 Nash Dr., Fairfax, VA 22032", "8/14/1997", "500010003",null,null);
+		Student lucy = new Student("Lucy", "Wang",  20, "408-606-0999", "4807 Nash Dr., Fairfax, VA 22032", "6/10/1996", "500010004",null,null);
+		
+		Professor susan = new Professor("Susan", "Yin", 53, "703-606-1488", "11561 clara Barton Dr., Farifax Station, VA 22039", "10/27/1963", "500010002",null);
+		Professor jim = new Professor("Jim", "Chen", 54, "703-786-6426", "11561 clara Barton Dr., Fairfax Station, VA 22039", "8/6/1962", "500010005", null);
+		
+		Course english = new Course(0, "English", 0, null, 3, 10);
+		Course math = new Course(0, "Math", 0, null, 3, 10);
+		Course art = new Course(0, "Art", 0, null, 3, 10);
+		Course java = new Course(0, "Java", 0, null, 3, 10);
+		
+		Grade lucyEnglishGrade = new Grade(english.getCourseID(), 0);
+		Grade jaydenEnglishGrade = new Grade(english.getCourseID(), 0);
+		Grade irisEnglishGrade = new Grade(english.getCourseID(), 0);
+		Grade lucyMathGrade = new Grade(math.getCourseID(), 0);
+		Grade irisArtGrade = new Grade(art.getCourseID(), 0);
+		Grade mikeJavaGrade = new Grade(java.getCourseID(), 0);
+		
+		ArrayList<Grade> irisClass = new ArrayList<Grade>();
+		irisClass.add(irisEnglishGrade);
+		irisClass.add(irisArtGrade);
+		iris.setCurrent(irisClass);
+		
+		ArrayList<Grade> jaydenClass = new ArrayList<Grade>();
+		jaydenClass.add(jaydenEnglishGrade);
+		jayden.setCurrent(jaydenClass);
+		
+		ArrayList<Grade> lucyClass = new ArrayList<Grade>();
+		lucyClass.add(lucyEnglishGrade);
+		lucyClass.add(lucyMathGrade);
+		lucy.setCurrent(lucyClass);
+		
+		ArrayList<Grade> mikeClass = new ArrayList<Grade>();
+		mikeClass.add(mikeJavaGrade);
+		mike.setCurrent(mikeClass);
+		
+		ArrayList<Integer> mathStudents = new ArrayList<Integer>();
+		mathStudents.add(lucy.getStudentID());
+		math.setStudentIDs(mathStudents);
+		
+		ArrayList<Integer> englishStudents = new ArrayList<Integer>();
+		englishStudents.add(iris.getStudentID());
+		englishStudents.add(jayden.getStudentID());
+		englishStudents.add(lucy.getStudentID());
+		english.setStudentIDs(englishStudents);
+		
+		ArrayList<Integer> artStudents = new ArrayList<Integer>();
+		artStudents.add(iris.getStudentID());
+		art.setStudentIDs(artStudents);
+		
+		ArrayList<Integer> javaStudents = new ArrayList<Integer>();
+		javaStudents.add(mike.getStudentID());
+		java.setStudentIDs(javaStudents);
+		
+		math.setTeacherID(susan.getProfessorID());
+		java.setTeacherID(susan.getProfessorID());
+		english.setTeacherID(jim.getProfessorID());
+		art.setTeacherID(jim.getProfessorID());
+		
+		ArrayList<Integer> jimClass = new ArrayList<Integer>();
+		jimClass.add(english.getCourseID());
+		jimClass.add(art.getCourseID());
+		jim.setCourseIDs(jimClass);
+		
+		ArrayList<Integer> susanClass = new ArrayList<Integer>();
+		susanClass.add(math.getCourseID());
+		susanClass.add(java.getCourseID());
+		susan.setCourseIDs(susanClass);
+		
+		ArrayList<Student> students = new ArrayList<Student>();
+		students.add(mike);
+		students.add(iris);
+		students.add(jayden);
+		students.add(lucy);
+		school.setStudents(students);
+		
+		ArrayList<Course> courses = new ArrayList<Course>();
+		courses.add(english);
+		courses.add(math);
+		courses.add(art);
+		courses.add(java);
+		school.setCourses(courses);
+		
+		ArrayList<Professor> professors = new ArrayList<Professor>();
+		professors.add(susan);
+		professors.add(jim);
+		school.setProfessors(professors);
+		
+		ArrayList<Student> temp1 = school.getStudents();
+		for(int i=0; i<temp1.size(); i++) {
+			System.out.println(temp1.get(i));
+		}
+		
+		ArrayList<Professor> temp2 = school.getProfessors();
+		for(int i=0; i<temp2.size(); i++) {
+			System.out.println(temp2.get(i));
+		}
+		
+		ArrayList<Course> temp3 = school.getCourses();
+		for(int i=0; i<temp3.size(); i++) {
+			System.out.println(temp3.get(i));
+		}
 	}
-
+/*
 	public boolean isRegistered(School school, int studentID, int courseID, String errorMsg) {
 		ArrayList<Course> course = school.getCourses();
 		
@@ -113,5 +218,5 @@ public class CourseManagement {
 			errorMsg += "Course at capacity";
 		
 		return false;
-	}
+	}*/
 }

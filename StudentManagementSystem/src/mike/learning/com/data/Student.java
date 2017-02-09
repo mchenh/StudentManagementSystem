@@ -4,18 +4,48 @@ import java.util.*;
 
 public class Student extends Person {
 	private float gpa;
-	private ArrayList<Course> current = new ArrayList<Course>();
-	private ArrayList<Course> previous = new ArrayList<Course>();
+	private ArrayList<Grade> current = new ArrayList<Grade>();
+	private ArrayList<Grade> previous = new ArrayList<Grade>();
 	private int studentID;
 	private static int studentIDCount = 0;
 
 	public Student(){studentID = studentIDCount++;}
 	public Student(String fname, String lname, int age, String phone, String address,
-				String birthday, String ssn, ArrayList<Course> current, ArrayList<Course> previous){
+				String birthday, String ssn, ArrayList<Grade> current, ArrayList<Grade> previous){
 		super(fname, lname, age, phone, address, birthday, ssn);
 		this.current = current;
 		this.previous = previous;
 		this.studentID = studentIDCount++;
+	}
+	
+	public String toString() {
+		String result = "\nStudent\n";
+		result += "First Name: " + this.getFname() + "\n";
+		result += "Last Name: " + this.getLname() + "\n";
+		result += "Age: " + this.getAge() + "\n";
+		result += "Phone Number: " + this.getPhone() + "\n";
+		result += "Address: " + this.getAddress() + "\n";
+		result += "Birthday: " + this.getBirthday() + "\n";
+		result += "Social Security Number: " + this.getSsn() + "\n";
+		result += "Current Classes: \n";
+		
+		ArrayList<Grade> temp = this.getCurrent();
+		
+		for(int i=0; i<temp.size(); i++) {
+			result += "\tCourse ID: " + temp.get(i).getCourseID() + "\tGrade: " + temp.get(i).getScore() + "\n";
+		}
+		
+		result += "Previous Classes: \n";
+		
+		temp = this.getPrevious();
+		if(temp == null)
+			result += "\tNo Classes";
+		else
+			for(int i=0; i<temp.size(); i++) {
+				result += "\tCourse ID: " + temp.get(i).getCourseID() + "\tGrade: " + temp.get(i).getScore() + "\n";
+			}
+		
+		return result;
 	}
 	public static Student createStudent(Person person) {
 		Student creation = new Student(person.getFname(), person.getLname(), person.getAge(), person.getPhone(),
@@ -37,21 +67,21 @@ public class Student extends Person {
 			return 0;
 		for(int i = 0; i < previous.size(); i++)
 		{
-			average += previous.get(i).getGrade();
+			average += previous.get(i).getScore();
 		}
 		gpa = average/previous.size();
 		return gpa;
 	}
-	public ArrayList<Course> getCurrent() {
+	public ArrayList<Grade> getCurrent() {
 		return current;
 	}
-	public void setCurrent(ArrayList<Course> current) {
+	public void setCurrent(ArrayList<Grade> current) {
 		this.current = current;
 	}
-	public ArrayList<Course> getPrevious() {
+	public ArrayList<Grade> getPrevious() {
 		return previous;
 	}
-	public void setPrevious(ArrayList<Course> previous) {
+	public void setPrevious(ArrayList<Grade> previous) {
 		this.previous = previous;
 	} 
 }
