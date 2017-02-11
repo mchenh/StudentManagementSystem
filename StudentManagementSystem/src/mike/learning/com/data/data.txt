@@ -1,4 +1,17 @@
 
+//NEW
+1. Replace ArrayList of courses in Professor class to Vector
+2. Change Person class to abstract class that has an abstract method of getOccupation that return a String of ¡°Student¡± or ¡°Professor¡±
+3. move initializing data from main() to a new methos as initialize(), so main() method only contain logic work flow.
+4. in initialize(), add three new courses: Biologics (3 credits, teach by Susan) and Mechanics (3 credits, teach by Jim)
+5. Assume the following students already took Biologics (grade: Iris 3, Lucy 2.5, Mike 3), and Mechanics (Jadyen 2.8, Mike 2.5)
+6. Assume student needs 30 credits to graduate, please check how many credits each studen needs to be able to graduate (you can add a method in Student class to do this)
+
+
+
+
+
+//OLD
 1. Create a new class Grade, this contains two properties: couseId(int), and score(int)
 
 2. Change ArrayList<Course> current and ArrayList<Course> previous in Student class to ArrayList<Grade> current and ArrayList<Grade>
@@ -29,4 +42,6 @@
 Jayden registers English, Lucy register English and Math
 
 9. After all registrations completed, display all student information (all student fields)
+
+
 
