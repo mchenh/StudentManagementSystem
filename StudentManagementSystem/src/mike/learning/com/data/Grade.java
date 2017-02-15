@@ -1,10 +1,11 @@
 package mike.learning.com.data;
 
 public class Grade {
-	private int courseID, score;
+	private int courseID;
+	private double score;
 	
 	public Grade() {}
-	public Grade(int courseID, int score) {
+	public Grade(int courseID, double score) {
 		this.courseID = courseID;
 		this.score = score;
 	}
@@ -14,7 +15,7 @@ public class Grade {
 	public void setCourseID(int courseID) {
 		this.courseID = courseID;
 	}
-	public int getScore() {
+	public double getScore() {
 		return score;
 	}
 	public void setScore(int score) {

@@ -17,7 +17,20 @@ public class Student extends Person {
 		this.previous = previous;
 		this.studentID = studentIDCount++;
 	}
+
+	public String graduate() {
+		double temp = 0;
+		for(int i=0; i<this.getPrevious().size(); i++) {
+			temp += this.getPrevious().get(i).getScore();
+		}
+		if(temp >= 30)
+			return "Yes";
+		return "No";
+	}
 	
+	String getOccupation() {
+		return "Student";
+	}
 	public String toString() {
 		String result = "\nStudent\n";
 		result += "First Name: " + this.getFname() + "\n";
@@ -27,6 +40,7 @@ public class Student extends Person {
 		result += "Address: " + this.getAddress() + "\n";
 		result += "Birthday: " + this.getBirthday() + "\n";
 		result += "Social Security Number: " + this.getSsn() + "\n";
+		result += "Graduation Requirements: " + this.graduate() + "\n";
 		result += "Current Classes: \n";
 		
 		ArrayList<Grade> temp = this.getCurrent();

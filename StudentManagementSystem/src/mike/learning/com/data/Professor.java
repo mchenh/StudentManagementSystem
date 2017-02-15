@@ -2,19 +2,23 @@ package mike.learning.com.data;
 import java.util.*;
 
 public class Professor extends Person{
-	private ArrayList<Integer> courseIDs;
+	private Vector<Integer> courseIDs;
 	private int professorID;
 	private static int professorIDCount = 0;
 	
 	public Professor(){ professorID = professorIDCount++;}
 	public Professor(String fname, String lname, int age, String phone, String address,
-				String birthday, String ssn, ArrayList<Integer> courseIDs){
+				String birthday, String ssn, Vector<Integer> courseIDs){
 		super(fname, lname, age, phone, address, birthday, ssn);
 		
 		this.courseIDs = courseIDs;
 		this.professorID = professorIDCount++;
 	}
-	
+
+	@Override
+	String getOccupation() {
+		return "Professor";
+	}
 	public String toString() {
 		String result = "\nProfessor\n";
 		result += "First Name: " + this.getFname() + "\n";
@@ -26,7 +30,7 @@ public class Professor extends Person{
 		result += "Social Security Number: " + this.getSsn() + "\n";
 		result += "Teaching Course IDs: ";
 		
-		ArrayList<Integer> temp = this.getCourseIDs();
+		Vector<Integer> temp = this.getCourseIDs();
 		
 		for(int i = 0; i<temp.size(); i++) {
 			if(i != temp.size()-1)
@@ -51,10 +55,10 @@ public class Professor extends Person{
 	public void setProfessorID(int professorID) {
 		this.professorID = professorID;
 	}
-	public ArrayList<Integer> getCourseIDs() {
+	public Vector<Integer> getCourseIDs() {
 		return courseIDs;
 	}
-	public void setCourseIDs(ArrayList<Integer> courseIDs) {
+	public void setCourseIDs(Vector<Integer> courseIDs) {
 		this.courseIDs = courseIDs;
 	}
 }

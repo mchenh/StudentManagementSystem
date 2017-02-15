@@ -1,6 +1,6 @@
 package mike.learning.com.data;
 
-public class Person {
+public abstract class Person {
 	private String fname = "N/A";
 	private String lname = "N/A";
 	private String fullname = "N/A";
@@ -24,6 +24,8 @@ public class Person {
 		this.ssn = social;
 	}
 
+	abstract String getOccupation();
+	
 	public String toString() {
 		String info = "First Name: " + this.fname + "\nLast Name: " + this.lname + "\nFull Name: " + this.fullname
 				+ "\nAge: " + this.age + "\nPhone Num: " + this.phone + "\nAddress: " + this.address + "\nBirthday: "

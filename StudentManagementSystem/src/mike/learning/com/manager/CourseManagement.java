@@ -5,6 +5,25 @@ import java.util.*;
 public class CourseManagement {
 	
 	public static void main(String args[]) {
+		School school = initialize();
+		
+		ArrayList<Student> temp1 = school.getStudents();
+		for(int i=0; i<temp1.size(); i++) {
+			System.out.println(temp1.get(i));
+		}
+		
+		ArrayList<Professor> temp2 = school.getProfessors();
+		for(int i=0; i<temp2.size(); i++) {
+			System.out.println(temp2.get(i));
+		}
+		
+		ArrayList<Course> temp3 = school.getCourses();
+		for(int i=0; i<temp3.size(); i++) {
+			System.out.println(temp3.get(i));
+		}
+	}
+	
+	public static School initialize() {
 		School school = new School();
 		
 		Student mike = new Student("Mike", "Chen", 26, "571-606-0999", "4803 Nash Dr., Fairfax, VA 22032", "4/10/1991", "500010000", null, null);
@@ -19,6 +38,8 @@ public class CourseManagement {
 		Course math = new Course(0, "Math", 0, null, 3, 10);
 		Course art = new Course(0, "Art", 0, null, 3, 10);
 		Course java = new Course(0, "Java", 0, null, 3, 10);
+		Course biology = new Course(0, "Biology", 0, null, 3, 10);
+		Course mechanics = new Course(0, "Mechanics", 0, null, 3, 10);
 		
 		Grade lucyEnglishGrade = new Grade(english.getCourseID(), 0);
 		Grade jaydenEnglishGrade = new Grade(english.getCourseID(), 0);
@@ -26,24 +47,42 @@ public class CourseManagement {
 		Grade lucyMathGrade = new Grade(math.getCourseID(), 0);
 		Grade irisArtGrade = new Grade(art.getCourseID(), 0);
 		Grade mikeJavaGrade = new Grade(java.getCourseID(), 0);
+		Grade irisBioGrade = new Grade(biology.getCourseID(), 3);
+		Grade lucyBioGrade = new Grade(biology.getCourseID(), 2.5);
+		Grade mikeBioGrade = new Grade(biology.getCourseID(), 3);
+		Grade jaydenMechGrade = new Grade(mechanics.getCourseID(), 2.8);
+		Grade mikeMechGrade = new Grade(mechanics.getCourseID(), 2.5);
 		
 		ArrayList<Grade> irisClass = new ArrayList<Grade>();
 		irisClass.add(irisEnglishGrade);
 		irisClass.add(irisArtGrade);
 		iris.setCurrent(irisClass);
+		ArrayList<Grade> irisPrevClass = new ArrayList<Grade>();
+		irisPrevClass.add(irisBioGrade);
+		iris.setPrevious(irisPrevClass);
 		
 		ArrayList<Grade> jaydenClass = new ArrayList<Grade>();
 		jaydenClass.add(jaydenEnglishGrade);
 		jayden.setCurrent(jaydenClass);
+		ArrayList<Grade> jaydenPrevClass = new ArrayList<Grade>();
+		jaydenPrevClass.add(jaydenMechGrade);
+		jayden.setPrevious(jaydenPrevClass);
 		
 		ArrayList<Grade> lucyClass = new ArrayList<Grade>();
 		lucyClass.add(lucyEnglishGrade);
 		lucyClass.add(lucyMathGrade);
 		lucy.setCurrent(lucyClass);
+		ArrayList<Grade> lucyPrevClass = new ArrayList<Grade>();
+		lucyPrevClass.add(lucyBioGrade);
+		lucy.setPrevious(lucyPrevClass);
 		
 		ArrayList<Grade> mikeClass = new ArrayList<Grade>();
 		mikeClass.add(mikeJavaGrade);
 		mike.setCurrent(mikeClass);
+		ArrayList<Grade> mikePrevClass = new ArrayList<Grade>();
+		mikePrevClass.add(mikeBioGrade);
+		mikePrevClass.add(mikeMechGrade);
+		mike.setPrevious(mikePrevClass);
 		
 		ArrayList<Integer> mathStudents = new ArrayList<Integer>();
 		mathStudents.add(lucy.getStudentID());
@@ -63,19 +102,33 @@ public class CourseManagement {
 		javaStudents.add(mike.getStudentID());
 		java.setStudentIDs(javaStudents);
 		
+		ArrayList<Integer> bioStudents = new ArrayList<Integer>();
+		bioStudents.add(iris.getStudentID());
+		bioStudents.add(lucy.getStudentID());
+		bioStudents.add(mike.getStudentID());
+		biology.setStudentIDs(bioStudents);
+		
+		ArrayList<Integer> mechStudents = new ArrayList<Integer>();
+		mechStudents.add(jayden.getStudentID());
+		mechStudents.add(mike.getStudentID());
+		
 		math.setTeacherID(susan.getProfessorID());
 		java.setTeacherID(susan.getProfessorID());
 		english.setTeacherID(jim.getProfessorID());
 		art.setTeacherID(jim.getProfessorID());
+		biology.setTeacherID(susan.getProfessorID());
+		mechanics.setTeacherID(jim.getProfessorID());
 		
-		ArrayList<Integer> jimClass = new ArrayList<Integer>();
+		Vector<Integer> jimClass = new Vector<Integer>();
 		jimClass.add(english.getCourseID());
 		jimClass.add(art.getCourseID());
+		jimClass.add(mechanics.getCourseID());
 		jim.setCourseIDs(jimClass);
 		
-		ArrayList<Integer> susanClass = new ArrayList<Integer>();
+		Vector<Integer> susanClass = new Vector<Integer>();
 		susanClass.add(math.getCourseID());
 		susanClass.add(java.getCourseID());
+		susanClass.add(biology.getCourseID());
 		susan.setCourseIDs(susanClass);
 		
 		ArrayList<Student> students = new ArrayList<Student>();
@@ -90,6 +143,8 @@ public class CourseManagement {
 		courses.add(math);
 		courses.add(art);
 		courses.add(java);
+		courses.add(mechanics);
+		courses.add(biology);
 		school.setCourses(courses);
 		
 		ArrayList<Professor> professors = new ArrayList<Professor>();
@@ -97,20 +152,7 @@ public class CourseManagement {
 		professors.add(jim);
 		school.setProfessors(professors);
 		
-		ArrayList<Student> temp1 = school.getStudents();
-		for(int i=0; i<temp1.size(); i++) {
-			System.out.println(temp1.get(i));
-		}
-		
-		ArrayList<Professor> temp2 = school.getProfessors();
-		for(int i=0; i<temp2.size(); i++) {
-			System.out.println(temp2.get(i));
-		}
-		
-		ArrayList<Course> temp3 = school.getCourses();
-		for(int i=0; i<temp3.size(); i++) {
-			System.out.println(temp3.get(i));
-		}
+		return school;
 	}
 /*
 	public boolean isRegistered(School school, int studentID, int courseID, String errorMsg) {
